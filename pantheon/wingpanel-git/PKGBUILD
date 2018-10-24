@@ -19,12 +19,13 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd wingpanel
-
   echo "r$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
 }
 
 prepare() {
   cd wingpanel
+
+  patch -Np1 -i "${srcdir}/../0001-port-to-mutter330.patch"
 
   if [[ -d build ]]; then
     rm -rf build

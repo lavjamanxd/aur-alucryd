@@ -14,8 +14,10 @@ makedepends=('cmake' 'gala-git' 'git' 'granite-git' 'vala')
 provides=('wingpanel' 'libwingpanel-2.0.so')
 conflicts=('wingpanel')
 replaces=('wingpanel-bzr')
-source=('git+https://github.com/elementary/wingpanel.git')
-sha256sums=('SKIP')
+source=('git+https://github.com/elementary/wingpanel.git'
+        '0001-port-to-mutter330.patch')
+sha256sums=('SKIP'
+            '5fc36fef0e83b4d336b0ccd79407150d19fa57c8114bfd5ee49794a026e22c83')
 
 pkgver() {
   cd wingpanel
@@ -25,7 +27,7 @@ pkgver() {
 prepare() {
   cd wingpanel
 
-  patch -Np1 -i "${srcdir}/../0001-port-to-mutter330.patch"
+  patch -Np1 -i "${srcdir}/0001-port-to-mutter330.patch"
 
   if [[ -d build ]]; then
     rm -rf build

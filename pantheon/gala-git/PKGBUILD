@@ -16,8 +16,10 @@ depends=('atk' 'bamf' 'cairo' 'gdk-pixbuf2' 'glib2' 'gnome-desktop' 'gtk3'
 makedepends=('git' 'gnome-common' 'granite-git' 'intltool' 'meson' 'vala')
 provides=('gala' 'libgala.so')
 conflicts=('gala')
-source=('git+https://github.com/elementary/gala.git')
-sha256sums=('SKIP')
+source=('git+https://github.com/elementary/gala.git'
+        '0001-port-to-mutter330.patch')
+sha256sums=('SKIP'
+            '1fb5736dab008f6d116758cb950a7a122c24317e611830cb6a7d86a58af969bb')
 
 pkgver() {
   cd gala
@@ -27,7 +29,7 @@ pkgver() {
 prepare() {
   cd gala
   git cherry-pick bda9dc191f25f2473ce5b858cfc6398d0f1865ef
-  patch -Np1 -i "${srcdir}/../0001-port-to-mutter330.patch"
+  patch -Np1 -i "${srcdir}/0001-port-to-mutter330.patch"
 }
 
 build() {

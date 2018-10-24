@@ -2,7 +2,7 @@
 # Contributor: sh4nks <sh4nks7@gmail.com
 
 pkgname=lightdm-pantheon-greeter-git
-pkgver=3.2.0.r75.bbf2958
+pkgver=3.3.0.r4.795b272
 pkgrel=1
 pkgdesc='Pantheon greeter for LightDM'
 arch=('x86_64')
@@ -18,10 +18,9 @@ provides=('lightdm-pantheon-greeter')
 conflicts=('lightdm-pantheon-greeter')
 install='lightdm-pantheon-greeter.install'
 source=('lightdm-pantheon-greeter::git+https://github.com/elementary/greeter.git'
-        '0001-bin-not-sbin.patch')
-        '0001-bin-not-sbin.patch')
+        '0001-port-to-mutter330.patch')
 sha256sums=('SKIP'
-            'f1fd5a443caa80cf95ee36a05421f3418cb1bc86714e47f1314c61128b77054b')
+            '56b4cc6b20f277da22990ad416ecbe0aa83e3f4aa2432a7b9d2a4c5bf9879f81')
 
 pkgver() {
   cd lightdm-pantheon-greeter
@@ -32,7 +31,7 @@ pkgver() {
 prepare() {
   cd lightdm-pantheon-greeter
 
-  patch -Np1 -i ../0001-bin-not-sbin.patch
+  patch -Np1 -i "${srcdir}/0001-port-to-mutter330.patch"
 }
 
 build() {

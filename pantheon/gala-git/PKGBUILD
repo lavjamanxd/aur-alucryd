@@ -1,7 +1,7 @@
 # Maintainer: Maxime Gauduin <alucryd@archlinux.org>
 
 pkgname=gala-git
-pkgver=0.3.0.r187.15f722a
+pkgver=0.3.0.r199.2104b18
 pkgrel=1
 pkgdesc='The Pantheon Window Manager'
 arch=('x86_64')
@@ -28,7 +28,7 @@ pkgver() {
 prepare() {
   cd gala
 
-  git cherry-pick -n 543c1e36014621bd2ceb446ef8bc5207fa179303
+#  git cherry-pick -n bda9dc191f25f2473ce5b858cfc6398d0f1865ef
 }
 
 build() {
